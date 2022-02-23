@@ -21,6 +21,11 @@ docs:
     children:
       - title: "숙제"
 
+  - title: "Incompletion"
+    children:
+      - title: "미완성"
+
+
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
