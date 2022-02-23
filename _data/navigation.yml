@@ -1,0 +1,30 @@
+# main links
+main:
+  - title: "Category"
+    url: /categories/
+  - title: "Search"
+    url: /search/
+
+docs:
+  - title: "C"
+    children:
+      - title: "Do it! C언어 입문"
+  
+  - title: "C++"
+
+  - title: "AI"
+    children:
+      - title: "AI"
+
+  - title: "Homework"
+    children:
+      - title: "숙제"
+
+  # - title: "About"
+  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+  # - title: "Sample Posts"
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
