@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>            Chapter 14      표준 입력 함수 | SY’s Notebook      </title>
-<meta name="description" content="">
+<!-- begin _includes/seo.html --><title>KEIL 코드 최적화 | SY’s Notebook</title>
+<meta name="description" content="1. Volatile 최적화">
 
 
   <meta name="author" content="SYdney-Go">
@@ -22,30 +22,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="SY's Notebook">
-<meta property="og:title" content="            Chapter 14      표준 입력 함수      ">
-<meta property="og:url" content="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_14/">
+<meta property="og:title" content="KEIL 코드 최적화">
+<meta property="og:url" content="http://localhost:4000/stm32/STM_KEIL_volatile/">
 
 
-  <meta property="og:description" content="">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2022-02-15T00:00:00+09:00">
+  <meta property="og:description" content="1. Volatile 최적화">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2022-02-23T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_14/">
+
+<link rel="canonical" href="http://localhost:4000/stm32/STM_KEIL_volatile/">
 
 
 
@@ -162,7 +162,7 @@
       
         
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="/categories/#do-it!-c%EC%96%B8%EC%96%B4-%EC%9E%85%EB%AC%B8" itemprop="item"><span itemprop="name">Do it! c%ec%96%b8%ec%96%b4 %ec%9e%85%eb%ac%b8</span></a>
+          <a href="/categories/#stm32" itemprop="item"><span itemprop="name">Stm32</span></a>
           <meta itemprop="position" content="2" />
         </li>
         <span class="sep">/</span>
@@ -170,7 +170,7 @@
     
       
       
-        <li class="current">Chapter 14 | 표준 입력 함수</li>
+        <li class="current">KEIL 코드 최적화</li>
       
     
   </ol>
@@ -261,23 +261,16 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="            Chapter 14      표준 입력 함수      ">
-    <meta itemprop="description" content="">
-    <meta itemprop="datePublished" content="2022-02-15T00:00:00+09:00">
+    <meta itemprop="headline" content="KEIL 코드 최적화">
+    <meta itemprop="description" content="1. Volatile 최적화">
+    <meta itemprop="datePublished" content="2022-02-23T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_14/" class="u-url" itemprop="url"><table>
-  <tbody>
-    <tr>
-      <td>Chapter 14</td>
-      <td>표준 입력 함수</td>
-    </tr>
-  </tbody>
-</table>
+            <a href="http://localhost:4000/stm32/STM_KEIL_volatile/" class="u-url" itemprop="url">KEIL 코드 최적화
 </a>
           </h1>
           
@@ -288,7 +281,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2022-02-15T00:00:00+09:00">2022-02-15</time>
+        <time datetime="2022-02-23T00:00:00+09:00">2022-02-23</time>
       </span>
     
 
@@ -316,26 +309,32 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-c-언어와-함수">1. C 언어와 함수</a></li><li><a href="#2-함수-정의하고-호출하기">2. 함수 정의하고 호출하기</a></li><li><a href="#3-main-함수-정리하기">3. main 함수 정리하기</a></li><li><a href="#4-함수-원형-선언하기">4. 함수 원형 선언하기</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-volatile-최적화">1. Volatile 최적화</a><ul><li><a href="#volatile-변수">volatile 변수</a></li><li><a href="#최적화">최적화</a></li></ul></li></ul></li></ul>
 
             </nav>
           </aside>
         
-        <p><br /><br /><br /></p>
+        <h1 id="1-volatile-최적화">1. Volatile 최적화</h1>
 
-<h1 id="1-c-언어와-함수">1. C 언어와 함수</h1>
+<h3 id="volatile-변수">volatile 변수</h3>
 
-<p><br /><br /><br /></p>
+<p>항상 해당 변수를 최적화에서 제외해서 레지스터에 로드된 값을 사용하지않고, 매번 메모리를 참조한다.</p>
 
-<h1 id="2-함수-정의하고-호출하기">2. 함수 정의하고 호출하기</h1>
+<p>반복하여 사용할건데 굳이 그래야하는 이유가 있다!</p>
 
-<p><br /><br /><br /></p>
+<p>SFR의 경우, 최적화해버리면 외부 요인에 의해 변경된 하드웨어의 변화를 감지할 수 없기 때문이다..</p>
 
-<h1 id="3-main-함수-정리하기">3. main 함수 정리하기</h1>
+<p>따라서 SFR접근을 하는 경우에는 되도록 volatile 키워드를 사용해주자</p>
 
-<p><br /><br /><br /></p>
+<p><img src="Part%202%20KEI%20c1bc0/Untitled%2037.png" alt="Untitled" /></p>
 
-<h1 id="4-함수-원형-선언하기">4. 함수 원형 선언하기</h1>
+<h3 id="최적화">최적화</h3>
+
+<p>그 외의 경우, 특히 순수 알고리즘과 관련된 문제에서는 최적화를 하면 메모리를 줄이거나 속도를 높일수 있다.</p>
+
+<p>Level3 : 최대 최적화한 경우</p>
+
+<p><img src="Part%202%20KEI%20c1bc0/Untitled%2038.png" alt="Untitled" /></p>
 
         
       </section>
@@ -354,7 +353,7 @@
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#do-it-c%EC%96%B8%EC%96%B4-%EC%9E%85%EB%AC%B8" class="page__taxonomy-item p-category" rel="tag">Do it! C언어 입문</a>
+      <a href="/categories/#stm32" class="page__taxonomy-item p-category" rel="tag">STM32</a>
     
     </span>
   </p>
@@ -362,7 +361,7 @@
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-02-15T00:00:00+09:00">2022-02-15</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-02-23T00:00:00+09:00">2022-02-23</time></p>
 
       </footer>
 
@@ -371,37 +370,22 @@
     <h4 class="page__share-title">공유하기</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Chapter+14+%7C+%ED%91%9C%EC%A4%80+%EC%9E%85%EB%A0%A5+%ED%95%A8%EC%88%98%20http%3A%2F%2Flocalhost%3A4000%2Fdo%2520it%21%2520c%25EC%2596%25B8%25EC%2596%25B4%2520%25EC%259E%2585%25EB%25AC%25B8%2FDoit_C_14%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=KEIL+%EC%BD%94%EB%93%9C+%EC%B5%9C%EC%A0%81%ED%99%94%20http%3A%2F%2Flocalhost%3A4000%2Fstm32%2FSTM_KEIL_volatile%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdo%2520it%21%2520c%25EC%2596%25B8%25EC%2596%25B4%2520%25EC%259E%2585%25EB%25AC%25B8%2FDoit_C_14%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fstm32%2FSTM_KEIL_volatile%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdo%2520it%21%2520c%25EC%2596%25B8%25EC%2596%25B4%2520%25EC%259E%2585%25EB%25AC%25B8%2FDoit_C_14%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fstm32%2FSTM_KEIL_volatile%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6/" class="pagination--pager" title="
-  
-    
-      Chapter 13.6
-      void* 형 포인터
-    
-  
-
+      <a href="/stm32/STM_KEIL_in/" class="pagination--pager" title="KEIL 환경 사용
 ">이전</a>
     
     
-      <a href="/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_15/" class="pagination--pager" title="
-  
-    
-      Chapter 15
-      배열과 포인터
-    
-  
-
-">다음</a>
+      <a href="#" class="pagination--pager disabled">다음</a>
     
   </nav>
 
@@ -415,54 +399,6 @@
     <div class="page__related">
       <h2 class="page__related-title">참고</h2>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/stm32/STM_KEIL_volatile/" rel="permalink">KEIL 코드 최적화
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2022-02-23T00:00:00+09:00">2022-02-23</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          최대 1 분 소요
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">1. Volatile 최적화
-
-</p>
-  </article>
-</div>
-
         
           
 
@@ -606,6 +542,54 @@
 
 
     <p class="archive__item-excerpt" itemprop="description">1. SFR을 이용한 하드웨어 제어
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/" rel="permalink">왜 포인터를 쓰는가?
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-16T00:00:00+09:00">2022-02-16</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
 
 </p>
   </article>

@@ -12,9 +12,10 @@ docs:
   
   - title: "C++"
 
-  - title: "AI"
+  - title: "Embedded"
     children:
-      - title: "AI"
+      - title : "Arduino"
+      - title: "STM32"
 
   - title: "Homework"
     children:

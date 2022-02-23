@@ -1,4 +1,470 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-02-23T09:34:10+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">SY’s Notebook</title><subtitle>Everything</subtitle><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><entry><title type="html">왜 포인터를 쓰는가?</title><link href="http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/" rel="alternate" type="text/html" title="왜 포인터를 쓰는가?" /><published>2022-02-16T00:00:00+09:00</published><updated>2022-02-16T00:00:00+09:00</updated><id>http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0</id><content type="html" xml:base="http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-02-23T13:18:23+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">SY’s Notebook</title><subtitle>Everything</subtitle><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><entry><title type="html">2. 하드웨어의 제어</title><link href="http://localhost:4000/stm32/STM_HWcontrol/" rel="alternate" type="text/html" title="2. 하드웨어의 제어" /><published>2022-02-23T00:00:00+09:00</published><updated>2022-02-23T00:00:00+09:00</updated><id>http://localhost:4000/stm32/STM_HWcontrol</id><content type="html" xml:base="http://localhost:4000/stm32/STM_HWcontrol/">&lt;h1 id=&quot;1-sfr을-이용한-하드웨어-제어&quot;&gt;1. SFR을 이용한 하드웨어 제어&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GPIO&lt;/td&gt;
+      &lt;td&gt;SFR에 값을 기록하여 전기적 상태를 변경 &lt;br /&gt; 핀의 전기적 상태의 확인&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TIMER&lt;/td&gt;
+      &lt;td&gt;SFR 값이 하드웨어 적으로 계속 변화 &lt;br /&gt;(시간정보 구하는데 사용)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ADC&lt;/td&gt;
+      &lt;td&gt;핀의 전압이 digital로 변환되어 SFR에 기록&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DAC&lt;/td&gt;
+      &lt;td&gt;SFR에 값을 기록하면 전압값이 변경된다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;UART / SPI / I2C&lt;/td&gt;
+      &lt;td&gt;전송하려는 데이터를 SFR에 기록&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;2-외부-하드웨어와의-연결&quot;&gt;2. 외부 하드웨어와의 연결&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F52a12ba0-225f-4c5e-ad3f-b6f0475a23e5%2FUntitled.png?table=block&amp;amp;id=96a91ad0-7d88-446a-9f4b-0cb525629762&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;STM 32의 경우, 각 핀에 다양한 외부 하드웨어가 연결되어 있다&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;LED&lt;/li&gt;
+  &lt;li&gt;Function key&lt;/li&gt;
+  &lt;li&gt;FND (Flexible Numeric Display)&lt;/li&gt;
+  &lt;li&gt;Light Sensor&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Port는 크게 Port A, Port B, Port C로 구분&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F126f1020-76d4-47d0-941a-d6d5b108dac3%2FUntitled.png?table=block&amp;amp;id=9f92505a-f3ba-4e44-b4ba-48f2fbbb217a&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;
+각 핀의 전기적 상태를 변경하여 외부 하드웨어를 제어 및 사용할 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-gpio-일반-입출력-포트&quot;&gt;(1) GPIO (일반 입출력 포트)&lt;/h2&gt;
+
+&lt;h3 id=&quot;-gpio-사용을-위한-클록-설정&quot;&gt;① GPIO 사용을 위한 클록 설정&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F126f1020-76d4-47d0-941a-d6d5b108dac3%2FUntitled.png?table=block&amp;amp;id=9f92505a-f3ba-4e44-b4ba-48f2fbbb217a&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;name=Untitled.png&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F58725b71-07a6-4669-b986-f58d9ceed7db%2FUntitled.png?table=block&amp;amp;id=515e233e-bc1d-4edc-8532-35044150a3a9&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Peripheral Clock enable register를 건들여서 Port의 설정을 사용할 수 있도록 만들어주자.&lt;/p&gt;
+
+&lt;p&gt;RCC_APB2ENR에서 클록 설정을 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이때, RCC의 기본 설정 주소는 0x4002.1000이다.&lt;/p&gt;
+
+&lt;p&gt;여기에 APB2의 주소는 0x18이다!&lt;/p&gt;
+
+&lt;p&gt;그러므로 0x4002.1018에 여기에 사용하려는 Port에 따라 신호를 줄 비트의 위치가 바뀐다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Port A : RCC_APB2ENR[2] = 1&lt;/li&gt;
+  &lt;li&gt;Port B : RCC_APB2ENR[3] = 1&lt;/li&gt;
+  &lt;li&gt;Port C : RCC_APB2ENR[4] = 1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;-핀의-전기적-신호를-바꾸는-방법&quot;&gt;② 핀의 전기적 신호를 바꾸는 방법&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GPIOx_CRL&lt;/td&gt;
+      &lt;td&gt;0 … 7번핀 방향설정에 사용하는 SFR (Configuration Low)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GPIOx_CRH&lt;/td&gt;
+      &lt;td&gt;8 … 15번핀 방향설정에 사용하는 SFR (Configuration High)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GPIOx_IDR&lt;/td&gt;
+      &lt;td&gt;핀의 전기적 상태를 확인하는 SFR (Input Data Register)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GPIOx_ODR&lt;/td&gt;
+      &lt;td&gt;핀의 전기적 상태를 변경하는 SFR (Output Data Register)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;-gpio_crl-gpio_crh&quot;&gt;③ GPIO_CRL, GPIO_CRH&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6e729bc7-8bf0-4299-8427-0840d09073e5%2FUntitled.png?table=block&amp;amp;id=f2cd2cd3-4ab8-40f4-87d5-9e9bcdda03f9&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;입출력 방향 설정&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F54b8e1ba-455f-4661-b736-4741f8873ac1%2FUntitled.png?table=block&amp;amp;id=2056b012-0fdd-4d73-9591-7df4eb7022eb&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;각 핀마다 할당된 CNF와 MODE 4비트를 변경하여 설정&lt;/p&gt;
+
+&lt;p&gt;입력 CNF : 01&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mode 00 : input mode&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;출력 CNF : 00&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Mode 10 : 속도 2MHZ&lt;/li&gt;
+  &lt;li&gt;Mode 01 : 속도 10MHZ&lt;/li&gt;
+  &lt;li&gt;Mode 11 : 속도 50MHZ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;특수목적(PWM, 통신 등)으로 사용할 것인가에 대한 설정&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;출력/입력 방식 설정(출력 속도, 출력 방식 / 입력 방식)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;-gpio_idr&quot;&gt;④ GPIO_IDR&lt;/h3&gt;
+
+&lt;p&gt;외부 신호에 따라 변화하는 핀의 전기적 상태를 알 수 있다.&lt;/p&gt;
+
+&lt;p&gt;0x4001.0808의 각 비트의 변화를 보고 전기적 상태를 파악할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcdf61806-9d33-493c-9fa1-26d744f6b3a3%2FUntitled.png?table=block&amp;amp;id=a35e9382-feb4-43be-aabc-c78ee90283bf&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-gpio_odr&quot;&gt;⑤ GPIO_ODR&lt;/h3&gt;
+
+&lt;p&gt;핀의 전기적 상태를 바꿀수 있다&lt;/p&gt;
+
+&lt;p&gt;0x4001.080C의 각 비트를 변경하여 신호를 변경할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F2d990c68-0a60-4c43-a108-f08a74273716%2FUntitled.png?table=block&amp;amp;id=50c46c10-25cf-4e17-b2db-eeca1d5118b2&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;3-인터럽트&quot;&gt;3. 인터럽트&lt;/h1&gt;
+
+&lt;p&gt;프로세서가 프로그램을 순차적으로 수행하고 있을때, 외부 장치에서 특정 상황이 발생한 경우 프로세스가 예외적인 프로그램이 처리하게 하는 것.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-내부-인터럽트&quot;&gt;(1) 내부 인터럽트&lt;/h2&gt;
+
+&lt;h3 id=&quot;-하드웨어-고장hardware-interrupt&quot;&gt;① 하드웨어 고장(Hardware Interrupt)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;컴퓨터 고장&lt;/li&gt;
+  &lt;li&gt;데이터 전달 과정에서의 비트 오류&lt;/li&gt;
+  &lt;li&gt;전원이 나간 경우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;-실행할-수-없는-명령어&quot;&gt;② 실행할 수 없는 명령어&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;기억장치에서 인출한 명령어의 비트 패턴이 정의되어 있지 않은 경우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;-명령어-실행-오류&quot;&gt;③ 명령어 실행 오류&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;나누기 0을 하는 경우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;-사용-권한-위배&quot;&gt;④ 사용 권한 위배&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;사용자가 운영체제만 사용할 수 있는 자원에 액세스하는 경우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-외부-인터럽트&quot;&gt;(2) 외부 인터럽트&lt;/h2&gt;
+
+&lt;p&gt;주변 IP의 SFR에 기록된 정보에 따라 특정 조건이 되면 Processor쪽으로 인터럽트 신호 전달. &lt;br /&gt;
+Processor는 ROM에 있는 인터럽트 서비스 함수의 주소 정보를 가지고 온다. &lt;br /&gt;
+이때 사용되는 인터럽트 서비스 함수, 즉 ISR은 예외 상황을 처리하기 위해 구현된 프로그램이다. &lt;br /&gt;
+이를 위해 SP와 PUSH와 POP이 사용된다. &lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-타이머-인터럽트&quot;&gt;① 타이머 인터럽트&lt;/h3&gt;
+
+&lt;p&gt;타이머가 일정한 시간 간격으로 중앙처리장치에게 인터럽트를 요청 &lt;br /&gt;
+내부 System timer SFR을 조정하여 주기적으로 인터럽트 신호를 주게 할 수 있다!&lt;/p&gt;
+
+&lt;h3 id=&quot;-입출력-인터럽트&quot;&gt;② 입출력 인터럽트&lt;/h3&gt;
+
+&lt;p&gt;속도가 느린 입출력장치가 입출력 준비가 완료되었음을 알리기 위해 인터럽트를 요청&lt;/p&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="STM32" /><summary type="html">1. SFR을 이용한 하드웨어 제어</summary></entry><entry><title type="html">1. 하드웨어의 구조</title><link href="http://localhost:4000/stm32/STM_HWstruct/" rel="alternate" type="text/html" title="1. 하드웨어의 구조" /><published>2022-02-23T00:00:00+09:00</published><updated>2022-02-23T00:00:00+09:00</updated><id>http://localhost:4000/stm32/STM_HWstruct</id><content type="html" xml:base="http://localhost:4000/stm32/STM_HWstruct/">&lt;h1 id=&quot;1-stm32의-구조&quot;&gt;1. STM32의 구조&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5ee8e6a2-e686-4958-be3a-7a2b2ba49438/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220223%2Fus-west-2%2Fs3%2Faws4_request&amp;amp;X-Amz-Date=20220223T005755Z&amp;amp;X-Amz-Expires=86400&amp;amp;X-Amz-Signature=8bc9a888353deda20a86855fe6ca2cff5432a411561243f499c2d8c88bc3c1cf&amp;amp;X-Amz-SignedHeaders=host&amp;amp;response-content-disposition=filename%20%3D%22Untitled.png%22&amp;amp;x-id=GetObject&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-cortex-m3-내부-mcu&quot;&gt;(1) Cortex-m3 내부 MCU&lt;/h2&gt;
+
+&lt;p&gt;STM32-entry에 사용되는 MCU &lt;br /&gt;
+단일 칩 내부에 프로세서, 메모리, 입출력 장치를 갖춘 장치&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c17a55df-c4bb-49b9-abc6-f5e858051a61/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220223%2Fus-west-2%2Fs3%2Faws4_request&amp;amp;X-Amz-Date=20220223T005832Z&amp;amp;X-Amz-Expires=86400&amp;amp;X-Amz-Signature=6515cea9d2216cef74b6bb0355b7c021959d9b865cd304cee7407aa707f51351&amp;amp;X-Amz-SignedHeaders=host&amp;amp;response-content-disposition=filename%20%3D%22Untitled.png%22&amp;amp;x-id=GetObject&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-processor&quot;&gt;(2) Processor&lt;/h2&gt;
+
+&lt;p&gt;중앙 처리 장치 =  ALU + 레지스터&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;프로그램 카운터(PC) &lt;br /&gt;
+   다음에 수행될 명령어의 주소를 보관하고 있는 레지스터&lt;/li&gt;
+  &lt;li&gt;명령어 레지스터(IR)&lt;br /&gt;
+   가장 최근에 인출된 명령어를 보관하고 있는 레지스터&lt;/li&gt;
+  &lt;li&gt;누산기(AC)&lt;br /&gt;
+   연산 결과를 임시적으로 보관하는 레지스터&lt;/li&gt;
+  &lt;li&gt;기억장치 주소 레지스터(MAR)&lt;br /&gt;
+    읽기와 쓰기 연산을 수행할 주 기억장치의 주소 기억&lt;/li&gt;
+  &lt;li&gt;기억장치 버퍼 레지스터(MBR)&lt;br /&gt;
+   주기억장치의 데이터나 주기억장치에서 쓰거나 읽을 임시 데이터를 보관하는 레지스터&lt;/li&gt;
+  &lt;li&gt;스텍 포인터(SP)&lt;br /&gt;
+   스택영역의 번지를 지정해주는 레지스터&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;-register-범용-레지스터&quot;&gt;① Register (범용 레지스터)&lt;/h3&gt;
+
+&lt;p&gt;프로세서가 바로 사용할 수 있는 데이터를 담고 있는 메모리&lt;/p&gt;
+
+&lt;h3 id=&quot;-sfr-특수-레지스터&quot;&gt;② SFR (특수 레지스터)&lt;/h3&gt;
+
+&lt;h4 id=&quot;--프로그램-제어-및-연산용-레지스터&quot;&gt;- 프로그램 제어 및 연산용 레지스터&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;산술 및 논리 연산&lt;/td&gt;
+      &lt;td&gt;ACC, B&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;외부 데이터 메모리의 주소 관리&lt;/td&gt;
+      &lt;td&gt;DPTR(DPL, DPH)   &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;프로그램 상태 관리&lt;/td&gt;
+      &lt;td&gt;PSW   &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;스택의 주소 관리&lt;/td&gt;
+      &lt;td&gt;SP&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;★ MCU 레지스터 13, 14, 15번 ★&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;13번은 스택 포인터로 사용된다&lt;/li&gt;
+  &lt;li&gt;14번은 함수 호출이 끝난 뒤 복귀 위치의 주소를 가지고 있다.&lt;/li&gt;
+  &lt;li&gt;15번은 PC (현재 사용하려는 명령어의 주소 정보로 사용된다.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;--마이크로프로세서의-주변-기기-제어용-레지스터&quot;&gt;- 마이크로프로세서의 주변 기기 제어용 레지스터&lt;/h4&gt;
+
+&lt;p&gt;MCU에도 들어있지만, 각 IP에도 들어있다!&lt;br /&gt;
+모든 SFR의 내부에는 memory mapping 되어있어서 특정 주소로 하드웨어를 제어할 수 있다.&lt;br /&gt;
+각 비트가 하드웨어적인 의미를 가지고 있기 때문이다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;포트 제어&lt;/td&gt;
+      &lt;td&gt;P0～P3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;외부 데이터 메모리의 주소 관리&lt;/td&gt;
+      &lt;td&gt;DPTR(DPL, DPH)   &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;프로그램 상태 관리&lt;/td&gt;
+      &lt;td&gt;PSW   &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;인터럽트 제어&lt;/td&gt;
+      &lt;td&gt;IE, IP &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;외부 인터럽트 제어&lt;/td&gt;
+      &lt;td&gt;TCON&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;타이머 인터럽트 제어&lt;/td&gt;
+      &lt;td&gt;TMOD, TCON, TH1, TL1, TH0, TL0 &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;직렬 송수신 제어&lt;/td&gt;
+      &lt;td&gt;SBUF, SCON, PCON&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;3-alu&quot;&gt;(3) ALU&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;산술연산과 논리연산&lt;/strong&gt;을 하는 연산장치&lt;/p&gt;
+
+&lt;h2 id=&quot;4-bus&quot;&gt;(4) Bus&lt;/h2&gt;
+
+&lt;p&gt;코어와 레지스터와 메모리를 연결해주는 회로를 말한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;데이터를 처리하는 중앙 처리 장치&lt;/li&gt;
+  &lt;li&gt;프로그램을 담고 있는 메모리&lt;/li&gt;
+  &lt;li&gt;바깥 세계와 통신하는 주변기기&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="STM32" /><summary type="html">1. STM32의 구조</summary></entry><entry><title type="html">KEIL 환경 사용</title><link href="http://localhost:4000/stm32/STM_KEIL_in/" rel="alternate" type="text/html" title="KEIL 환경 사용" /><published>2022-02-23T00:00:00+09:00</published><updated>2022-02-23T00:00:00+09:00</updated><id>http://localhost:4000/stm32/STM_KEIL_in</id><content type="html" xml:base="http://localhost:4000/stm32/STM_KEIL_in/">&lt;h1 id=&quot;1-keil-ide&quot;&gt;1. KEIL IDE&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F95e376c3-ad4d-45d4-9057-b3349c5fd676%2FUntitled.png?table=block&amp;amp;id=7a0f7224-4c26-4e23-9b14-c16ec7723ca4&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;name=Untitled.png&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;가장 많이 사용되는 임베디드 IDE 중 하나로, 가상의 환경을 제공하거나 실제 칩을 연결해서 환경을 설정할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;특히 강력한 디버깅 기능을 제공한다.&lt;/p&gt;
+
+&lt;p&gt;우리가 사용하는 ARM Cortex-M3 MCU를 장착한 STM32의 가상환경을 제공한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;2-keil-설치&quot;&gt;2. KEIL 설치&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc2b2e73c-cae6-4caa-9cb3-57e56ea2c524%2FUntitled.png?table=block&amp;amp;id=af80af64-8e7e-416b-b193-6614546f273a&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-software-package-설치&quot;&gt;(1) Software package 설치&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fa67326d9-6efc-4957-8993-9e9733c1306d%2FUntitled.png?table=block&amp;amp;id=a8adcdba-a15a-48e4-bd5e-0d4dd010d06e&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fabc8671b-d517-4b6a-8ee9-eeea9b52cad3%2FUntitled.png?table=block&amp;amp;id=899c5c43-c444-46e0-bf8d-21fbe5fdba12&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;3-프로젝트-생성-방법&quot;&gt;3. 프로젝트 생성 방법&lt;/h1&gt;
+
+&lt;h2 id=&quot;1-새-프로젝트-생성&quot;&gt;(1) 새 프로젝트 생성&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F52823e1d-a806-4be7-90b0-8f4c8107ef96%2FUntitled.png?table=block&amp;amp;id=3a1b8ba0-93c6-41ab-8f9b-9a33db50d55a&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc596affd-27b8-4f70-a7d6-b4587128f563%2FUntitled.png?table=block&amp;amp;id=7f2a6578-e527-43f6-8aac-f2d076b23deb&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-내부-가상환경을-사용하는-경우&quot;&gt;(2) 내부 가상환경을 사용하는 경우&lt;/h2&gt;
+
+&lt;h3 id=&quot;-사용할-가상환경의-mcu-선택하기&quot;&gt;① 사용할 가상환경의 MCU 선택하기&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc19b1e3a-7e9f-4f14-a071-d8c765fe3391%2FUntitled.png?table=block&amp;amp;id=13df3b6d-ba12-4ac8-b76a-fff64edaa058&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-빌드-설정의-진행&quot;&gt;② 빌드 설정의 진행&lt;/h3&gt;
+
+&lt;h4 id=&quot;--표준-라이브러리-함수-사용을-위한-설정과-사용할-메모리-크기-값을-설정&quot;&gt;- 표준 라이브러리 함수 사용을 위한 설정과 사용할 메모리 크기 값을 설정&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fffa6b90d-5865-41cf-938d-60d90178f4c3%2FUntitled.png?table=block&amp;amp;id=8a17c629-fc23-4cec-a8cc-5c13f923edd4&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;--hex파일과-bin-파일-생성-설정&quot;&gt;- Hex파일과 bin 파일 생성 설정&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3022900d-5103-4c05-bb04-0c85ab0ce053%2FUntitled.png?table=block&amp;amp;id=bd972aee-7a10-493f-8cf3-56b4cc373a4d&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F95754381-dda5-4c2a-af9f-586a788b7bb9%2FUntitled.png?table=block&amp;amp;id=b5bc1529-15c0-4881-8f13-d9d81316a023&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe –bin “#L” -o “$P\output.bin”&lt;/p&gt;
+
+&lt;h4 id=&quot;--링크와-디버거-설정&quot;&gt;- 링크와 디버거 설정&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc38554b7-68be-4732-8a05-9fc60db44798%2FUntitled.png?table=block&amp;amp;id=e7e0b8d8-7273-4ce9-a929-9c47a26db2ad&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F74c99ded-3510-461a-a182-12934bf761e0%2FUntitled.png?table=block&amp;amp;id=e643cc62-5014-49db-adeb-a29a2d7aa5d8&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-외부-cpu를-사용하는-경우&quot;&gt;(3) 외부 CPU를 사용하는 경우&lt;/h2&gt;
+
+&lt;h3 id=&quot;-사용하려는-cpu를-선택&quot;&gt;① 사용하려는 CPU를 선택&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F481e61e0-d800-4c2a-b609-41a5b5206837%2FUntitled.png?table=block&amp;amp;id=8da3e47e-84a9-4f7e-81a4-8a88a11e9034&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe4e2c91e-1c30-4a1b-973d-3282cfb1b8af%2FUntitled.png?table=block&amp;amp;id=a26134f8-c8ee-49ae-bb31-8adcddc81e5a&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F48ca46a6-fe2f-4193-a558-c52fdc67691e%2FUntitled.png?table=block&amp;amp;id=f680db8b-55f8-451c-a36a-c9bce57f6cb1&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F86b3a64c-96be-4b92-bdf3-18a4ccb78c87%2FUntitled.png?table=block&amp;amp;id=617379ad-619b-4985-8b45-43847086d643&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-파일-생성-후-프로젝트에-추가&quot;&gt;② 파일 생성 후 프로젝트에 추가&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F1f5f1209-4022-4829-9ddf-409bf35313b1%2FUntitled.png?table=block&amp;amp;id=30101377-53ee-4928-a0c2-4bbee3e23b1d&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7eb27a70-a6a6-48bf-910f-94aed83f74b1%2FUntitled.png?table=block&amp;amp;id=40a680e8-5ca3-4187-8509-11390e03c7b5&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;-빌드-설정의-진행-1&quot;&gt;③ 빌드 설정의 진행&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F05d1ccfb-8762-4fd7-8b62-dbdd989379fe%2FUntitled.png?table=block&amp;amp;id=d0b4191f-633f-4d51-96b6-14cb8a1e0063&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;--메모리-영역-확인&quot;&gt;- 메모리 영역 확인&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6175f0d9-edc6-4a82-a2aa-b3bd8277fc88%2FUntitled.png?table=block&amp;amp;id=765fd3f1-ba44-4119-af4d-8a02e8a765bd&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;--map파일과-hex-파일-생성-설정&quot;&gt;- MAP파일과 HEX 파일 생성 설정&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffe8b4319-b9f9-479d-aa6b-86a913b8b261%2FUntitled.png?table=block&amp;amp;id=7211abe9-179d-4721-a59f-fd49c9238508&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F957d305a-39a1-45e9-a331-1c0f06dfb13c%2FUntitled.png?table=block&amp;amp;id=85294674-0b4b-46d5-9c48-b5ffd65a96b2&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;--bin-파일-생성--ckeil_v5armarmccbinfromelfexe-bin-l--o-poutputbin&quot;&gt;- bin 파일 생성 : C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe –bin “#L” -o “$P\output.bin”&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F05b7915c-ad3c-40f6-80ec-0d9b639670ee%2FUntitled.png?table=block&amp;amp;id=04fe27ae-e0db-435f-b7bf-86bc6e82db19&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;--사용할-디버거-설정&quot;&gt;- 사용할 디버거 설정&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Facd7208b-2234-45a9-8ca4-bbfd43712719%2FUntitled.png?table=block&amp;amp;id=56169854-7931-427a-b02d-af87f5af2e0c&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;4-프로젝트-빌드&quot;&gt;4. 프로젝트 빌드&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F37c8b5e7-295a-4fd7-ba28-f97c0c14938c%2FUntitled.png?table=block&amp;amp;id=5ec32c22-da19-4890-bf7a-02ebb0ad48a4&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;5-st-link&quot;&gt;5. ST-Link&lt;/h1&gt;
+
+&lt;p&gt;ST-Link처럼 마이크로컨트롤러와 통신하는 도구들을 JTAG라고 한다!&lt;/p&gt;
+
+&lt;p&gt;빌드 결과물을 외부 CPU의 내부ROM에 다운로드 해보자!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdd24dcf0-3936-49ae-a236-9a3722968f2a%2FUntitled.png?table=block&amp;amp;id=eee5bd02-093e-4741-a895-970c0d84e1d4&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ST-Link : 다운로드, 디버깅 기능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcbbbee15-0eda-4ead-9316-a853dbff487f%2FUntitled.png?table=block&amp;amp;id=b6b53944-a8d2-448a-b8f5-8c6f37b1251f&amp;amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;amp;width=2000&amp;amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;amp;cache=v2&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;USB 케이블 : PC에서 전원 공급, 시리얼 통신 기능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;6-build&quot;&gt;6. Build&lt;/h1&gt;
+
+&lt;p&gt;개발자가 소스코드를 작성하면 컴파일러가 이를 프로세서가 이해할 수 있는 명령어로 변환해준다.&lt;/p&gt;
+
+&lt;p&gt;이 파일을 오브젝트 파일로 변환을 한다.&lt;/p&gt;
+
+&lt;p&gt;오브젝트 파일은 링커와 연결되어 최종적으로  axf 파일이 생성되게 된다. 또 추가적으로 hex와 bin 파일도 형성이 된다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;hex : 아스키 형태의 텍스트로 구성되어있으며, 시작 코드와 바이트 수, 주소 등의 정보를 가진다.&lt;/li&gt;
+  &lt;li&gt;bin : 순수한 raw data를 의미한다. → ROM Binary&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이렇게 빌드된 이진 결과물은 JTAG를 통해서 ROM에 구워지게 되고, 실행 과정을 디버깅할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="STM32" /><summary type="html">1. KEIL IDE</summary></entry><entry><title type="html">KEIL 코드 최적화</title><link href="http://localhost:4000/stm32/STM_KEIL_volatile/" rel="alternate" type="text/html" title="KEIL 코드 최적화" /><published>2022-02-23T00:00:00+09:00</published><updated>2022-02-23T00:00:00+09:00</updated><id>http://localhost:4000/stm32/STM_KEIL_volatile</id><content type="html" xml:base="http://localhost:4000/stm32/STM_KEIL_volatile/">&lt;h1 id=&quot;1-volatile-최적화&quot;&gt;1. Volatile 최적화&lt;/h1&gt;
+
+&lt;h3 id=&quot;volatile-변수&quot;&gt;volatile 변수&lt;/h3&gt;
+
+&lt;p&gt;항상 해당 변수를 최적화에서 제외해서 레지스터에 로드된 값을 사용하지않고, 매번 메모리를 참조한다.&lt;/p&gt;
+
+&lt;p&gt;반복하여 사용할건데 굳이 그래야하는 이유가 있다!&lt;/p&gt;
+
+&lt;p&gt;SFR의 경우, 최적화해버리면 외부 요인에 의해 변경된 하드웨어의 변화를 감지할 수 없기 때문이다..&lt;/p&gt;
+
+&lt;p&gt;따라서 SFR접근을 하는 경우에는 되도록 volatile 키워드를 사용해주자&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;Part%202%20KEI%20c1bc0/Untitled%2037.png&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;최적화&quot;&gt;최적화&lt;/h3&gt;
+
+&lt;p&gt;그 외의 경우, 특히 순수 알고리즘과 관련된 문제에서는 최적화를 하면 메모리를 줄이거나 속도를 높일수 있다.&lt;/p&gt;
+
+&lt;p&gt;Level3 : 최대 최적화한 경우&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;Part%202%20KEI%20c1bc0/Untitled%2038.png&quot; alt=&quot;Untitled&quot; /&gt;&lt;/p&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="STM32" /><summary type="html">1. Volatile 최적화</summary></entry><entry><title type="html">왜 포인터를 쓰는가?</title><link href="http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/" rel="alternate" type="text/html" title="왜 포인터를 쓰는가?" /><published>2022-02-16T00:00:00+09:00</published><updated>2022-02-16T00:00:00+09:00</updated><id>http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0</id><content type="html" xml:base="http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;왜-포인터를-쓰지-그냥-값을-가져다가-쓸-수도-있잖아&quot;&gt;왜 포인터를 쓰지? 그냥 값을 가져다가 쓸 수도 있잖아!&lt;/h1&gt;
 &lt;h2 id=&quot;c의-구조체-안에-함수를-넣어서-쓸때-함수-포인터로만-할-수-있다&quot;&gt;c의 구조체 안에 함수를 넣어서 쓸때, 함수 포인터로만 할 수 있다&lt;/h2&gt;
@@ -117,94 +583,6 @@
 따라서 사용 주소를 직접 입력하여 같은 주소를 쓰게하면 오류가 발생하기 쉽다. &lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;▶  그래서 우리는 프로그램 내부에 선언한 다른 변수의 주소를 받아와서 사용한다.  (얘를 포인터로 얻을 수 있다.)&lt;/p&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.2 | 포인터</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.2/" rel="alternate" type="text/html" title="Chapter 13.2 | 포인터" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.2</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.2/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;2-포인터&quot;&gt;2. 포인터&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;3-포인터와-const-키워드&quot;&gt;3. 포인터와 const 키워드&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;4-포인터-변수의-주소-연산&quot;&gt;4. 포인터 변수의 주소 연산&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;5-포인터와-대상의-크기&quot;&gt;5. 포인터와 대상의 크기&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;6-void-형-포인터&quot;&gt;6. void* 형 포인터&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.3 | 포인터와 const</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.3/" rel="alternate" type="text/html" title="Chapter 13.3 | 포인터와 const" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.3</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.3/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;2-포인터&quot;&gt;2. 포인터&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;3-포인터와-const-키워드&quot;&gt;3. 포인터와 const 키워드&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;4-포인터-변수의-주소-연산&quot;&gt;4. 포인터 변수의 주소 연산&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;5-포인터와-대상의-크기&quot;&gt;5. 포인터와 대상의 크기&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;6-void-형-포인터&quot;&gt;6. void* 형 포인터&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.4 | 포인터 변수의 주소 연산</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.4/" rel="alternate" type="text/html" title="Chapter 13.4 | 포인터 변수의 주소 연산" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.4</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.4/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;2-포인터&quot;&gt;2. 포인터&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;3-포인터와-const-키워드&quot;&gt;3. 포인터와 const 키워드&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;4-포인터-변수의-주소-연산&quot;&gt;4. 포인터 변수의 주소 연산&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;5-포인터와-대상의-크기&quot;&gt;5. 포인터와 대상의 크기&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;6-void-형-포인터&quot;&gt;6. void* 형 포인터&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.5 | 포인터와 대상의 크기</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.5/" rel="alternate" type="text/html" title="Chapter 13.5 | 포인터와 대상의 크기" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.5</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.5/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;2-포인터&quot;&gt;2. 포인터&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;3-포인터와-const-키워드&quot;&gt;3. 포인터와 const 키워드&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;4-포인터-변수의-주소-연산&quot;&gt;4. 포인터 변수의 주소 연산&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;5-포인터와-대상의-크기&quot;&gt;5. 포인터와 대상의 크기&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;6-void-형-포인터&quot;&gt;6. void* 형 포인터&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.6 | void* 형 포인터</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6/" rel="alternate" type="text/html" title="Chapter 13.6 | void* 형 포인터" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
 

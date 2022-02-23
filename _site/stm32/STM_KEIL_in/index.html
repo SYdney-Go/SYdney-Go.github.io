@@ -1,0 +1,779 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>KEIL 환경 사용 | SY’s Notebook</title>
+<meta name="description" content="1. KEIL IDE">
+
+
+  <meta name="author" content="SYdney-Go">
+  
+  <meta property="article:author" content="SYdney-Go">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="SY's Notebook">
+<meta property="og:title" content="KEIL 환경 사용">
+<meta property="og:url" content="http://localhost:4000/stm32/STM_KEIL_in/">
+
+
+  <meta property="og:description" content="1. KEIL IDE">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-02-23T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/stm32/STM_KEIL_in/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Sydney-Go",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="SY's Notebook Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          SY's Notebook
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/search/">Search</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/categories/#stm32" itemprop="item"><span itemprop="name">Stm32</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">KEIL 환경 사용</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">토글 메뉴</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">C</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="">Do it! C언어 입문</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">C++</span>
+        
+
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Embedded</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="">Arduino</a></li>
+          
+            <li><a href="">STM32</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Homework</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="">숙제</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="KEIL 환경 사용">
+    <meta itemprop="description" content="1. KEIL IDE">
+    <meta itemprop="datePublished" content="2022-02-23T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/stm32/STM_KEIL_in/" class="u-url" itemprop="url">KEIL 환경 사용
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-23T00:00:00+09:00">2022-02-23</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#1-keil-ide">1. KEIL IDE</a></li><li><a href="#2-keil-설치">2. KEIL 설치</a><ul><li><a href="#1-software-package-설치">(1) Software package 설치</a></li></ul></li><li><a href="#3-프로젝트-생성-방법">3. 프로젝트 생성 방법</a><ul><li><a href="#1-새-프로젝트-생성">(1) 새 프로젝트 생성</a></li><li><a href="#2-내부-가상환경을-사용하는-경우">(2) 내부 가상환경을 사용하는 경우</a><ul><li><a href="#-사용할-가상환경의-mcu-선택하기">① 사용할 가상환경의 MCU 선택하기</a></li><li><a href="#-빌드-설정의-진행">② 빌드 설정의 진행</a><ul><li><a href="#--표준-라이브러리-함수-사용을-위한-설정과-사용할-메모리-크기-값을-설정">- 표준 라이브러리 함수 사용을 위한 설정과 사용할 메모리 크기 값을 설정</a></li><li><a href="#--hex파일과-bin-파일-생성-설정">- Hex파일과 bin 파일 생성 설정</a></li><li><a href="#--링크와-디버거-설정">- 링크와 디버거 설정</a></li></ul></li></ul></li><li><a href="#3-외부-cpu를-사용하는-경우">(3) 외부 CPU를 사용하는 경우</a><ul><li><a href="#-사용하려는-cpu를-선택">① 사용하려는 CPU를 선택</a></li><li><a href="#-파일-생성-후-프로젝트에-추가">② 파일 생성 후 프로젝트에 추가</a></li><li><a href="#-빌드-설정의-진행-1">③ 빌드 설정의 진행</a><ul><li><a href="#--메모리-영역-확인">- 메모리 영역 확인</a></li><li><a href="#--map파일과-hex-파일-생성-설정">- MAP파일과 HEX 파일 생성 설정</a></li><li><a href="#--bin-파일-생성--ckeil_v5armarmccbinfromelfexe-bin-l--o-poutputbin">- bin 파일 생성 : C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe –bin “#L” -o “$P\output.bin”</a></li><li><a href="#--사용할-디버거-설정">- 사용할 디버거 설정</a></li></ul></li></ul></li></ul></li><li><a href="#4-프로젝트-빌드">4. 프로젝트 빌드</a></li><li><a href="#5-st-link">5. ST-Link</a></li><li><a href="#6-build">6. Build</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="1-keil-ide">1. KEIL IDE</h1>
+
+<p><img src="https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F95e376c3-ad4d-45d4-9057-b3349c5fd676%2FUntitled.png?table=block&amp;id=7a0f7224-4c26-4e23-9b14-c16ec7723ca4&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;name=Untitled.png&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p>가장 많이 사용되는 임베디드 IDE 중 하나로, 가상의 환경을 제공하거나 실제 칩을 연결해서 환경을 설정할 수 있다.</p>
+
+<p>특히 강력한 디버깅 기능을 제공한다.</p>
+
+<p>우리가 사용하는 ARM Cortex-M3 MCU를 장착한 STM32의 가상환경을 제공한다.</p>
+
+<p><br /><br /><br /></p>
+
+<h1 id="2-keil-설치">2. KEIL 설치</h1>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc2b2e73c-cae6-4caa-9cb3-57e56ea2c524%2FUntitled.png?table=block&amp;id=af80af64-8e7e-416b-b193-6614546f273a&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h2 id="1-software-package-설치">(1) Software package 설치</h2>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fa67326d9-6efc-4957-8993-9e9733c1306d%2FUntitled.png?table=block&amp;id=a8adcdba-a15a-48e4-bd5e-0d4dd010d06e&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fabc8671b-d517-4b6a-8ee9-eeea9b52cad3%2FUntitled.png?table=block&amp;id=899c5c43-c444-46e0-bf8d-21fbe5fdba12&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><br /><br /><br /></p>
+
+<h1 id="3-프로젝트-생성-방법">3. 프로젝트 생성 방법</h1>
+
+<h2 id="1-새-프로젝트-생성">(1) 새 프로젝트 생성</h2>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F52823e1d-a806-4be7-90b0-8f4c8107ef96%2FUntitled.png?table=block&amp;id=3a1b8ba0-93c6-41ab-8f9b-9a33db50d55a&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc596affd-27b8-4f70-a7d6-b4587128f563%2FUntitled.png?table=block&amp;id=7f2a6578-e527-43f6-8aac-f2d076b23deb&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h2 id="2-내부-가상환경을-사용하는-경우">(2) 내부 가상환경을 사용하는 경우</h2>
+
+<h3 id="-사용할-가상환경의-mcu-선택하기">① 사용할 가상환경의 MCU 선택하기</h3>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc19b1e3a-7e9f-4f14-a071-d8c765fe3391%2FUntitled.png?table=block&amp;id=13df3b6d-ba12-4ac8-b76a-fff64edaa058&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h3 id="-빌드-설정의-진행">② 빌드 설정의 진행</h3>
+
+<h4 id="--표준-라이브러리-함수-사용을-위한-설정과-사용할-메모리-크기-값을-설정">- 표준 라이브러리 함수 사용을 위한 설정과 사용할 메모리 크기 값을 설정</h4>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fffa6b90d-5865-41cf-938d-60d90178f4c3%2FUntitled.png?table=block&amp;id=8a17c629-fc23-4cec-a8cc-5c13f923edd4&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h4 id="--hex파일과-bin-파일-생성-설정">- Hex파일과 bin 파일 생성 설정</h4>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3022900d-5103-4c05-bb04-0c85ab0ce053%2FUntitled.png?table=block&amp;id=bd972aee-7a10-493f-8cf3-56b4cc373a4d&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F95754381-dda5-4c2a-af9f-586a788b7bb9%2FUntitled.png?table=block&amp;id=b5bc1529-15c0-4881-8f13-d9d81316a023&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p>C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe –bin “#L” -o “$P\output.bin”</p>
+
+<h4 id="--링크와-디버거-설정">- 링크와 디버거 설정</h4>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc38554b7-68be-4732-8a05-9fc60db44798%2FUntitled.png?table=block&amp;id=e7e0b8d8-7273-4ce9-a929-9c47a26db2ad&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F74c99ded-3510-461a-a182-12934bf761e0%2FUntitled.png?table=block&amp;id=e643cc62-5014-49db-adeb-a29a2d7aa5d8&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h2 id="3-외부-cpu를-사용하는-경우">(3) 외부 CPU를 사용하는 경우</h2>
+
+<h3 id="-사용하려는-cpu를-선택">① 사용하려는 CPU를 선택</h3>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F481e61e0-d800-4c2a-b609-41a5b5206837%2FUntitled.png?table=block&amp;id=8da3e47e-84a9-4f7e-81a4-8a88a11e9034&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe4e2c91e-1c30-4a1b-973d-3282cfb1b8af%2FUntitled.png?table=block&amp;id=a26134f8-c8ee-49ae-bb31-8adcddc81e5a&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F48ca46a6-fe2f-4193-a558-c52fdc67691e%2FUntitled.png?table=block&amp;id=f680db8b-55f8-451c-a36a-c9bce57f6cb1&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F86b3a64c-96be-4b92-bdf3-18a4ccb78c87%2FUntitled.png?table=block&amp;id=617379ad-619b-4985-8b45-43847086d643&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h3 id="-파일-생성-후-프로젝트에-추가">② 파일 생성 후 프로젝트에 추가</h3>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F1f5f1209-4022-4829-9ddf-409bf35313b1%2FUntitled.png?table=block&amp;id=30101377-53ee-4928-a0c2-4bbee3e23b1d&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7eb27a70-a6a6-48bf-910f-94aed83f74b1%2FUntitled.png?table=block&amp;id=40a680e8-5ca3-4187-8509-11390e03c7b5&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h3 id="-빌드-설정의-진행-1">③ 빌드 설정의 진행</h3>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F05d1ccfb-8762-4fd7-8b62-dbdd989379fe%2FUntitled.png?table=block&amp;id=d0b4191f-633f-4d51-96b6-14cb8a1e0063&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h4 id="--메모리-영역-확인">- 메모리 영역 확인</h4>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6175f0d9-edc6-4a82-a2aa-b3bd8277fc88%2FUntitled.png?table=block&amp;id=765fd3f1-ba44-4119-af4d-8a02e8a765bd&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h4 id="--map파일과-hex-파일-생성-설정">- MAP파일과 HEX 파일 생성 설정</h4>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffe8b4319-b9f9-479d-aa6b-86a913b8b261%2FUntitled.png?table=block&amp;id=7211abe9-179d-4721-a59f-fd49c9238508&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F957d305a-39a1-45e9-a331-1c0f06dfb13c%2FUntitled.png?table=block&amp;id=85294674-0b4b-46d5-9c48-b5ffd65a96b2&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h4 id="--bin-파일-생성--ckeil_v5armarmccbinfromelfexe-bin-l--o-poutputbin">- bin 파일 생성 : C:\Keil_v5\ARM\ARMCC\bin\fromelf.exe –bin “#L” -o “$P\output.bin”</h4>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F05b7915c-ad3c-40f6-80ec-0d9b639670ee%2FUntitled.png?table=block&amp;id=04fe27ae-e0db-435f-b7bf-86bc6e82db19&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<h4 id="--사용할-디버거-설정">- 사용할 디버거 설정</h4>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Facd7208b-2234-45a9-8ca4-bbfd43712719%2FUntitled.png?table=block&amp;id=56169854-7931-427a-b02d-af87f5af2e0c&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><br /><br /><br /></p>
+
+<h1 id="4-프로젝트-빌드">4. 프로젝트 빌드</h1>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F37c8b5e7-295a-4fd7-ba28-f97c0c14938c%2FUntitled.png?table=block&amp;id=5ec32c22-da19-4890-bf7a-02ebb0ad48a4&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<p><br /><br /><br /></p>
+
+<h1 id="5-st-link">5. ST-Link</h1>
+
+<p>ST-Link처럼 마이크로컨트롤러와 통신하는 도구들을 JTAG라고 한다!</p>
+
+<p>빌드 결과물을 외부 CPU의 내부ROM에 다운로드 해보자!</p>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdd24dcf0-3936-49ae-a236-9a3722968f2a%2FUntitled.png?table=block&amp;id=eee5bd02-093e-4741-a895-970c0d84e1d4&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<ul>
+  <li>ST-Link : 다운로드, 디버깅 기능</li>
+</ul>
+
+<p><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcbbbee15-0eda-4ead-9316-a853dbff487f%2FUntitled.png?table=block&amp;id=b6b53944-a8d2-448a-b8f5-8c6f37b1251f&amp;spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&amp;width=2000&amp;userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&amp;cache=v2" alt="Untitled" /></p>
+
+<ul>
+  <li>USB 케이블 : PC에서 전원 공급, 시리얼 통신 기능</li>
+</ul>
+
+<p><br /><br /><br /></p>
+
+<h1 id="6-build">6. Build</h1>
+
+<p>개발자가 소스코드를 작성하면 컴파일러가 이를 프로세서가 이해할 수 있는 명령어로 변환해준다.</p>
+
+<p>이 파일을 오브젝트 파일로 변환을 한다.</p>
+
+<p>오브젝트 파일은 링커와 연결되어 최종적으로  axf 파일이 생성되게 된다. 또 추가적으로 hex와 bin 파일도 형성이 된다.</p>
+
+<ul>
+  <li>hex : 아스키 형태의 텍스트로 구성되어있으며, 시작 코드와 바이트 수, 주소 등의 정보를 가진다.</li>
+  <li>bin : 순수한 raw data를 의미한다. → ROM Binary</li>
+</ul>
+
+<p>이렇게 빌드된 이진 결과물은 JTAG를 통해서 ROM에 구워지게 되고, 실행 과정을 디버깅할 수 있다.</p>
+
+<p><br /><br /><br /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#stm32" class="page__taxonomy-item p-category" rel="tag">STM32</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-02-23T00:00:00+09:00">2022-02-23</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=KEIL+%ED%99%98%EA%B2%BD+%EC%82%AC%EC%9A%A9%20http%3A%2F%2Flocalhost%3A4000%2Fstm32%2FSTM_KEIL_in%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fstm32%2FSTM_KEIL_in%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fstm32%2FSTM_KEIL_in%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/stm32/STM_HWstruct/" class="pagination--pager" title="
+  하드웨어의 구조
+
+">이전</a>
+    
+    
+      <a href="/stm32/STM_KEIL_volatile/" class="pagination--pager" title="KEIL 코드 최적화
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/stm32/STM_KEIL_volatile/" rel="permalink">KEIL 코드 최적화
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-23T00:00:00+09:00">2022-02-23</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1. Volatile 최적화
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/stm32/STM_HWstruct/" rel="permalink"><ol>
+  <li>하드웨어의 구조</li>
+</ol>
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-23T00:00:00+09:00">2022-02-23</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1. STM32의 구조
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/stm32/STM_HWcontrol/" rel="permalink"><ol>
+  <li>하드웨어의 제어</li>
+</ol>
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-23T00:00:00+09:00">2022-02-23</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">1. SFR을 이용한 하드웨어 제어
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/" rel="permalink">왜 포인터를 쓰는가?
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2022-02-16T00:00:00+09:00">2022-02-16</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          최대 1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/SYdney-Go" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.notion.so/SYdney-0d01b009dc2d413b870ad111fa12b352" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-square-n" aria-hidden="true"></i> Notion</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Sydney-Go. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -172,4 +172,28 @@ var store = [{
         "tags": [],
         "url": "/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/",
         "teaser": null
+      },{
+        "title": "2. 하드웨어의 제어",
+        "excerpt":"1. SFR을 이용한 하드웨어 제어 GPIO SFR에 값을 기록하여 전기적 상태를 변경 핀의 전기적 상태의 확인 TIMER SFR 값이 하드웨어 적으로 계속 변화 (시간정보 구하는데 사용) ADC 핀의 전압이 digital로 변환되어 SFR에 기록 DAC SFR에 값을 기록하면 전압값이 변경된다. UART / SPI / I2C 전송하려는 데이터를 SFR에 기록 2. 외부...","categories": ["STM32"],
+        "tags": [],
+        "url": "/stm32/STM_HWcontrol/",
+        "teaser": null
+      },{
+        "title": "1. 하드웨어의 구조",
+        "excerpt":"1. STM32의 구조 (1) Cortex-m3 내부 MCU STM32-entry에 사용되는 MCU 단일 칩 내부에 프로세서, 메모리, 입출력 장치를 갖춘 장치 (2) Processor 중앙 처리 장치 = ALU + 레지스터 프로그램 카운터(PC)  다음에 수행될 명령어의 주소를 보관하고 있는 레지스터 명령어 레지스터(IR)  가장 최근에 인출된 명령어를 보관하고 있는 레지스터 누산기(AC)  연산 결과를 임시적으로...","categories": ["STM32"],
+        "tags": [],
+        "url": "/stm32/STM_HWstruct/",
+        "teaser": null
+      },{
+        "title": "KEIL 환경 사용",
+        "excerpt":"1. KEIL IDE 가장 많이 사용되는 임베디드 IDE 중 하나로, 가상의 환경을 제공하거나 실제 칩을 연결해서 환경을 설정할 수 있다. 특히 강력한 디버깅 기능을 제공한다. 우리가 사용하는 ARM Cortex-M3 MCU를 장착한 STM32의 가상환경을 제공한다. 2. KEIL 설치 (1) Software package 설치 3. 프로젝트 생성 방법 (1) 새 프로젝트 생성 (2)...","categories": ["STM32"],
+        "tags": [],
+        "url": "/stm32/STM_KEIL_in/",
+        "teaser": null
+      },{
+        "title": "KEIL 코드 최적화",
+        "excerpt":"1. Volatile 최적화 volatile 변수 항상 해당 변수를 최적화에서 제외해서 레지스터에 로드된 값을 사용하지않고, 매번 메모리를 참조한다. 반복하여 사용할건데 굳이 그래야하는 이유가 있다! SFR의 경우, 최적화해버리면 외부 요인에 의해 변경된 하드웨어의 변화를 감지할 수 없기 때문이다.. 따라서 SFR접근을 하는 경우에는 되도록 volatile 키워드를 사용해주자 최적화 그 외의 경우, 특히 순수...","categories": ["STM32"],
+        "tags": [],
+        "url": "/stm32/STM_KEIL_volatile/",
+        "teaser": null
       }]
