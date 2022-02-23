@@ -1,229 +1,229 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-02-16T18:20:27+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">SY’s Notebook</title><subtitle>Everything</subtitle><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><entry><title type="html">왜 포인터를 쓰는가?</title><link href="http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/" rel="alternate" type="text/html" title="왜 포인터를 쓰는가?" /><published>2022-02-16T00:00:00+09:00</published><updated>2022-02-16T00:00:00+09:00</updated><id>http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0</id><content type="html" xml:base="http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/"><![CDATA[<p><br /><br /><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-02-23T09:34:10+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">SY’s Notebook</title><subtitle>Everything</subtitle><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><entry><title type="html">왜 포인터를 쓰는가?</title><link href="http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/" rel="alternate" type="text/html" title="왜 포인터를 쓰는가?" /><published>2022-02-16T00:00:00+09:00</published><updated>2022-02-16T00:00:00+09:00</updated><id>http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0</id><content type="html" xml:base="http://localhost:4000/%EC%88%99%EC%A0%9C/%ED%8F%AC%EC%9D%B8%ED%84%B0/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="왜-포인터를-쓰지-그냥-값을-가져다가-쓸-수도-있잖아">왜 포인터를 쓰지? 그냥 값을 가져다가 쓸 수도 있잖아!</h1>
-<h2 id="c의-구조체-안에-함수를-넣어서-쓸때-함수-포인터로만-할-수-있다">c의 구조체 안에 함수를 넣어서 쓸때, 함수 포인터로만 할 수 있다</h2>
+&lt;h1 id=&quot;왜-포인터를-쓰지-그냥-값을-가져다가-쓸-수도-있잖아&quot;&gt;왜 포인터를 쓰지? 그냥 값을 가져다가 쓸 수도 있잖아!&lt;/h1&gt;
+&lt;h2 id=&quot;c의-구조체-안에-함수를-넣어서-쓸때-함수-포인터로만-할-수-있다&quot;&gt;c의 구조체 안에 함수를 넣어서 쓸때, 함수 포인터로만 할 수 있다&lt;/h2&gt;
 
-<h1 id="그리고-class를-왜-쓰지-그냥-함수-가져다가-쓸-수도-있잖아">그리고 Class를 왜 쓰지? 그냥 함수 가져다가 쓸 수도 있잖아!</h1>
-<h2 id="class에서-상속할때-형변환과-관련이-있다">class에서 상속할때 형변환과 관련이 있다</h2>
-<h2 id="class의-self들이-pointer와-비슷하다">class의 self들이 pointer와 비슷하다…</h2>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="숙제" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Chapter 10 | 시프트 연산자와 비트 연산자</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_10/" rel="alternate" type="text/html" title="Chapter 10 | 시프트 연산자와 비트 연산자" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_10</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_10/"><![CDATA[<p><br /><br /><br /></p>
+&lt;h1 id=&quot;그리고-class를-왜-쓰지-그냥-함수-가져다가-쓸-수도-있잖아&quot;&gt;그리고 Class를 왜 쓰지? 그냥 함수 가져다가 쓸 수도 있잖아!&lt;/h1&gt;
+&lt;h2 id=&quot;class에서-상속할때-형변환과-관련이-있다&quot;&gt;class에서 상속할때 형변환과 관련이 있다&lt;/h2&gt;
+&lt;h2 id=&quot;class의-self들이-pointer와-비슷하다&quot;&gt;class의 self들이 pointer와 비슷하다…&lt;/h2&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="숙제" /><summary type="html"></summary></entry><entry><title type="html">Chapter 10 | 시프트 연산자와 비트 연산자</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_10/" rel="alternate" type="text/html" title="Chapter 10 | 시프트 연산자와 비트 연산자" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_10</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_10/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="1-c-언어와-함수">1. C 언어와 함수</h1>
+&lt;h1 id=&quot;1-c-언어와-함수&quot;&gt;1. C 언어와 함수&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="2-함수-정의하고-호출하기">2. 함수 정의하고 호출하기</h1>
+&lt;h1 id=&quot;2-함수-정의하고-호출하기&quot;&gt;2. 함수 정의하고 호출하기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="3-main-함수-정리하기">3. main 함수 정리하기</h1>
+&lt;h1 id=&quot;3-main-함수-정리하기&quot;&gt;3. main 함수 정리하기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="4-함수-원형-선언하기">4. 함수 원형 선언하기</h1>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Chapter 11 | 지역 변수와 전역함수</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_11/" rel="alternate" type="text/html" title="Chapter 11 | 지역 변수와 전역함수" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_11</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_11/"><![CDATA[<p><br /><br /><br /></p>
+&lt;h1 id=&quot;4-함수-원형-선언하기&quot;&gt;4. 함수 원형 선언하기&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 11 | 지역 변수와 전역함수</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_11/" rel="alternate" type="text/html" title="Chapter 11 | 지역 변수와 전역함수" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_11</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_11/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="1-c-언어와-함수">1. C 언어와 함수</h1>
+&lt;h1 id=&quot;1-c-언어와-함수&quot;&gt;1. C 언어와 함수&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="2-함수-정의하고-호출하기">2. 함수 정의하고 호출하기</h1>
+&lt;h1 id=&quot;2-함수-정의하고-호출하기&quot;&gt;2. 함수 정의하고 호출하기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="3-main-함수-정리하기">3. main 함수 정리하기</h1>
+&lt;h1 id=&quot;3-main-함수-정리하기&quot;&gt;3. main 함수 정리하기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="4-함수-원형-선언하기">4. 함수 원형 선언하기</h1>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Chapter 12 | 배열과 문자열</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_12/" rel="alternate" type="text/html" title="Chapter 12 | 배열과 문자열" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_12</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_12/"><![CDATA[<p><br /><br /><br /></p>
+&lt;h1 id=&quot;4-함수-원형-선언하기&quot;&gt;4. 함수 원형 선언하기&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 12 | 배열과 문자열</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_12/" rel="alternate" type="text/html" title="Chapter 12 | 배열과 문자열" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_12</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_12/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="1-c-언어와-함수">1. C 언어와 함수</h1>
+&lt;h1 id=&quot;1-c-언어와-함수&quot;&gt;1. C 언어와 함수&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="2-함수-정의하고-호출하기">2. 함수 정의하고 호출하기</h1>
+&lt;h1 id=&quot;2-함수-정의하고-호출하기&quot;&gt;2. 함수 정의하고 호출하기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="3-main-함수-정리하기">3. main 함수 정리하기</h1>
+&lt;h1 id=&quot;3-main-함수-정리하기&quot;&gt;3. main 함수 정리하기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="4-함수-원형-선언하기">4. 함수 원형 선언하기</h1>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Chapter 13.1 | 운영체제의 메모리 관리 방식</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.1/" rel="alternate" type="text/html" title="Chapter 13.1 | 운영체제의 메모리 관리 방식" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.1</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.1/"><![CDATA[<p><br /><br /><br /></p>
+&lt;h1 id=&quot;4-함수-원형-선언하기&quot;&gt;4. 함수 원형 선언하기&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.1 | 운영체제의 메모리 관리 방식</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.1/" rel="alternate" type="text/html" title="Chapter 13.1 | 운영체제의 메모리 관리 방식" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.1</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.1/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="1-운영체제와-프로그래밍">1. 운영체제와 프로그래밍</h1>
-<p>C언어 소스코드의 모든 변수들은 컴파일하면 모두 메모리 주소로 바뀐다!<br />
-즉, 기계어에서는 변수를 사용하지 않아도 변수의 주소만 알아도 변수의 값을 읽거나 바꿀수 있다! <br />
-이런 컴퓨터 시스템의 메모리를 관리하는건 운영체제이다!</p>
+&lt;h1 id=&quot;1-운영체제와-프로그래밍&quot;&gt;1. 운영체제와 프로그래밍&lt;/h1&gt;
+&lt;p&gt;C언어 소스코드의 모든 변수들은 컴파일하면 모두 메모리 주소로 바뀐다!&lt;br /&gt;
+즉, 기계어에서는 변수를 사용하지 않아도 변수의 주소만 알아도 변수의 값을 읽거나 바꿀수 있다! &lt;br /&gt;
+이런 컴퓨터 시스템의 메모리를 관리하는건 운영체제이다!&lt;/p&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="2-메모리-주소-지정-방식">2. 메모리 주소 지정 방식</h1>
-<p>운영체제들은 메모리 주소를 1바이트 단위로 관리한다.<br />
-그렇기 때문에 메모리를 사용하려면 사용할 메모리의 주소와 사용할 크기를 명시해야한다.<br /></p>
-<blockquote>
-  <p>ex) “나는 100번지부터 2바이트 크기만큼 메모리를 사용할거야”</p>
-</blockquote>
+&lt;h1 id=&quot;2-메모리-주소-지정-방식&quot;&gt;2. 메모리 주소 지정 방식&lt;/h1&gt;
+&lt;p&gt;운영체제들은 메모리 주소를 1바이트 단위로 관리한다.&lt;br /&gt;
+그렇기 때문에 메모리를 사용하려면 사용할 메모리의 주소와 사용할 크기를 명시해야한다.&lt;br /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;ex) “나는 100번지부터 2바이트 크기만큼 메모리를 사용할거야”&lt;/p&gt;
+&lt;/blockquote&gt;
 
-<h2 id="1-직접-주소-지정-방식">(1) 직접 주소 지정 방식</h2>
-<p>사용할 메모리를 직접 적는 방식<br />
-※ 이때 저장하는 값과 주소 모두 16진수의 바이트 단위로 저장한다.</p>
+&lt;h2 id=&quot;1-직접-주소-지정-방식&quot;&gt;(1) 직접 주소 지정 방식&lt;/h2&gt;
+&lt;p&gt;사용할 메모리를 직접 적는 방식&lt;br /&gt;
+※ 이때 저장하는 값과 주소 모두 16진수의 바이트 단위로 저장한다.&lt;/p&gt;
 
-<h3 id="단점">단점</h3>
-<p>직접 주소 지정 방식은 ‘변수’문법과 같다.<br />
-즉, 주소가 적힌 함수 내에서만 사용이 가능하다.</p>
+&lt;h3 id=&quot;단점&quot;&gt;단점&lt;/h3&gt;
+&lt;p&gt;직접 주소 지정 방식은 ‘변수’문법과 같다.&lt;br /&gt;
+즉, 주소가 적힌 함수 내에서만 사용이 가능하다.&lt;/p&gt;
 
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span>
-<span class="kt">void</span> <span class="nf">Test</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="kt">short</span> <span class="n">soft</span> <span class="o">=</span> <span class="mh">0x0000</span><span class="p">;</span> <span class="cm">/*직접주소지정방식으로 적힌 주소*/</span>
-  <span class="n">soft</span> <span class="o">=</span> <span class="n">tips</span><span class="p">;</span> <span class="cm">/*불러오고 싶지만, main함수의 tips를 불러올 수 없다*/</span>
-<span class="p">}</span>
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;soft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x0000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/*직접주소지정방식으로 적힌 주소*/&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;soft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/*불러오고 싶지만, main함수의 tips를 불러올 수 없다*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="kt">short</span> <span class="n">tips</span> <span class="o">=</span> <span class="mh">0x0005</span><span class="p">;</span> <span class="cm">/*직접주소지정방식으로 적힌 주소*/</span>
-  <span class="n">Test</span><span class="p">();</span> <span class="cm">/*뀨, 옛다 오류*/</span>
-<span class="p">}</span>
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tips&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x0005&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/*직접주소지정방식으로 적힌 주소*/&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/*뀨, 옛다 오류*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-</code></pre></div></div>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<p>에러가 안나려면 함수에 주소를 매개변수로 전해주어야한다. (그래 귀찮다. 그래서 우리는 간접 주소 지정 방식을 사용할 것이다.)</p>
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span>
-<span class="kt">void</span> <span class="nf">Test</span><span class="p">(</span><span class="kt">short</span> <span class="n">data</span><span class="p">)</span> <span class="cm">/*주소 받았당*/</span>
-<span class="p">{</span>
-  <span class="kt">short</span> <span class="n">soft</span> <span class="o">=</span> <span class="mh">0x0000</span><span class="p">;</span>
-  <span class="n">soft</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span> <span class="cm">/*받은 주소를 사용할 수 있다*/</span>
-<span class="p">}</span>
+&lt;p&gt;에러가 안나려면 함수에 주소를 매개변수로 전해주어야한다. (그래 귀찮다. 그래서 우리는 간접 주소 지정 방식을 사용할 것이다.)&lt;/p&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/*주소 받았당*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;soft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x0000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;soft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/*받은 주소를 사용할 수 있다*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="kt">short</span> <span class="n">tips</span> <span class="o">=</span> <span class="mh">0x0005</span><span class="p">;</span> <span class="cm">/*직접주소지정방식으로 적힌 주소*/</span>
-  <span class="n">Test</span><span class="p">(</span><span class="n">tips</span><span class="p">);</span> <span class="cm">/*그 주소를 Test 함수에게 매개변수로 전달한다.*/</span>
-<span class="p">}</span>
-</code></pre></div></div>
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;short&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tips&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x0005&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/*직접주소지정방식으로 적힌 주소*/&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tips&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/*그 주소를 Test 함수에게 매개변수로 전달한다.*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-<h2 id="2-간접-주소-지정-방식">(2) 간접 주소 지정 방식</h2>
-<blockquote>
-  <p>“어디에 가면 주소가 저장되어있는데, 가서 보시고 알아서 찾아가세요”</p>
-  <blockquote>
-    <p>그 가라는 주소를 바꿔먹을 수 있어서 다양성을 높일 수 있다 (현실에서 그러지는 말자)</p>
-  </blockquote>
-</blockquote>
+&lt;h2 id=&quot;2-간접-주소-지정-방식&quot;&gt;(2) 간접 주소 지정 방식&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;“어디에 가면 주소가 저장되어있는데, 가서 보시고 알아서 찾아가세요”&lt;/p&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;그 가라는 주소를 바꿔먹을 수 있어서 다양성을 높일 수 있다 (현실에서 그러지는 말자)&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
 
-<p>우리는 보통 간접 주소 지정 방식을 많이 사용한다. <br />
-일단 고정 주소를 직접 표기하기 위해 유효한 주소를 판딘하는 것은 매우 어렵다. <br />
-또, 프로그램은 실행될 때마다 사용하는 메모리 공간이 달라지기 때문에 변수의 주소도 매번 변한다.<br /><br />
-따라서 사용 주소를 직접 입력하여 같은 주소를 쓰게하면 오류가 발생하기 쉽다. <br /></p>
+&lt;p&gt;우리는 보통 간접 주소 지정 방식을 많이 사용한다. &lt;br /&gt;
+일단 고정 주소를 직접 표기하기 위해 유효한 주소를 판딘하는 것은 매우 어렵다. &lt;br /&gt;
+또, 프로그램은 실행될 때마다 사용하는 메모리 공간이 달라지기 때문에 변수의 주소도 매번 변한다.&lt;br /&gt;&lt;br /&gt;
+따라서 사용 주소를 직접 입력하여 같은 주소를 쓰게하면 오류가 발생하기 쉽다. &lt;br /&gt;&lt;/p&gt;
 
-<p>▶  그래서 우리는 프로그램 내부에 선언한 다른 변수의 주소를 받아와서 사용한다.  (얘를 포인터로 얻을 수 있다.)</p>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Chapter 13.2 | 포인터</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.2/" rel="alternate" type="text/html" title="Chapter 13.2 | 포인터" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.2</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.2/"><![CDATA[<p><br /><br /><br /></p>
+&lt;p&gt;▶  그래서 우리는 프로그램 내부에 선언한 다른 변수의 주소를 받아와서 사용한다.  (얘를 포인터로 얻을 수 있다.)&lt;/p&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.2 | 포인터</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.2/" rel="alternate" type="text/html" title="Chapter 13.2 | 포인터" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.2</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.2/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="1-운영체제의-메모리-관리-방식">1. 운영체제의 메모리 관리 방식</h1>
+&lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="2-포인터">2. 포인터</h1>
+&lt;h1 id=&quot;2-포인터&quot;&gt;2. 포인터&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="3-포인터와-const-키워드">3. 포인터와 const 키워드</h1>
+&lt;h1 id=&quot;3-포인터와-const-키워드&quot;&gt;3. 포인터와 const 키워드&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="4-포인터-변수의-주소-연산">4. 포인터 변수의 주소 연산</h1>
+&lt;h1 id=&quot;4-포인터-변수의-주소-연산&quot;&gt;4. 포인터 변수의 주소 연산&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="5-포인터와-대상의-크기">5. 포인터와 대상의 크기</h1>
+&lt;h1 id=&quot;5-포인터와-대상의-크기&quot;&gt;5. 포인터와 대상의 크기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="6-void-형-포인터">6. void* 형 포인터</h1>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Chapter 13.3 | 포인터와 const</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.3/" rel="alternate" type="text/html" title="Chapter 13.3 | 포인터와 const" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.3</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.3/"><![CDATA[<p><br /><br /><br /></p>
+&lt;h1 id=&quot;6-void-형-포인터&quot;&gt;6. void* 형 포인터&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.3 | 포인터와 const</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.3/" rel="alternate" type="text/html" title="Chapter 13.3 | 포인터와 const" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.3</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.3/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="1-운영체제의-메모리-관리-방식">1. 운영체제의 메모리 관리 방식</h1>
+&lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="2-포인터">2. 포인터</h1>
+&lt;h1 id=&quot;2-포인터&quot;&gt;2. 포인터&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="3-포인터와-const-키워드">3. 포인터와 const 키워드</h1>
+&lt;h1 id=&quot;3-포인터와-const-키워드&quot;&gt;3. 포인터와 const 키워드&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="4-포인터-변수의-주소-연산">4. 포인터 변수의 주소 연산</h1>
+&lt;h1 id=&quot;4-포인터-변수의-주소-연산&quot;&gt;4. 포인터 변수의 주소 연산&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="5-포인터와-대상의-크기">5. 포인터와 대상의 크기</h1>
+&lt;h1 id=&quot;5-포인터와-대상의-크기&quot;&gt;5. 포인터와 대상의 크기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="6-void-형-포인터">6. void* 형 포인터</h1>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Chapter 13.4 | 포인터 변수의 주소 연산</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.4/" rel="alternate" type="text/html" title="Chapter 13.4 | 포인터 변수의 주소 연산" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.4</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.4/"><![CDATA[<p><br /><br /><br /></p>
+&lt;h1 id=&quot;6-void-형-포인터&quot;&gt;6. void* 형 포인터&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.4 | 포인터 변수의 주소 연산</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.4/" rel="alternate" type="text/html" title="Chapter 13.4 | 포인터 변수의 주소 연산" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.4</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.4/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="1-운영체제의-메모리-관리-방식">1. 운영체제의 메모리 관리 방식</h1>
+&lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="2-포인터">2. 포인터</h1>
+&lt;h1 id=&quot;2-포인터&quot;&gt;2. 포인터&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="3-포인터와-const-키워드">3. 포인터와 const 키워드</h1>
+&lt;h1 id=&quot;3-포인터와-const-키워드&quot;&gt;3. 포인터와 const 키워드&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="4-포인터-변수의-주소-연산">4. 포인터 변수의 주소 연산</h1>
+&lt;h1 id=&quot;4-포인터-변수의-주소-연산&quot;&gt;4. 포인터 변수의 주소 연산&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="5-포인터와-대상의-크기">5. 포인터와 대상의 크기</h1>
+&lt;h1 id=&quot;5-포인터와-대상의-크기&quot;&gt;5. 포인터와 대상의 크기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="6-void-형-포인터">6. void* 형 포인터</h1>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Chapter 13.5 | 포인터와 대상의 크기</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.5/" rel="alternate" type="text/html" title="Chapter 13.5 | 포인터와 대상의 크기" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.5</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.5/"><![CDATA[<p><br /><br /><br /></p>
+&lt;h1 id=&quot;6-void-형-포인터&quot;&gt;6. void* 형 포인터&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.5 | 포인터와 대상의 크기</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.5/" rel="alternate" type="text/html" title="Chapter 13.5 | 포인터와 대상의 크기" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.5</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.5/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="1-운영체제의-메모리-관리-방식">1. 운영체제의 메모리 관리 방식</h1>
+&lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="2-포인터">2. 포인터</h1>
+&lt;h1 id=&quot;2-포인터&quot;&gt;2. 포인터&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="3-포인터와-const-키워드">3. 포인터와 const 키워드</h1>
+&lt;h1 id=&quot;3-포인터와-const-키워드&quot;&gt;3. 포인터와 const 키워드&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="4-포인터-변수의-주소-연산">4. 포인터 변수의 주소 연산</h1>
+&lt;h1 id=&quot;4-포인터-변수의-주소-연산&quot;&gt;4. 포인터 변수의 주소 연산&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="5-포인터와-대상의-크기">5. 포인터와 대상의 크기</h1>
+&lt;h1 id=&quot;5-포인터와-대상의-크기&quot;&gt;5. 포인터와 대상의 크기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="6-void-형-포인터">6. void* 형 포인터</h1>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Chapter 13.6 | void* 형 포인터</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6/" rel="alternate" type="text/html" title="Chapter 13.6 | void* 형 포인터" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6/"><![CDATA[<p><br /><br /><br /></p>
+&lt;h1 id=&quot;6-void-형-포인터&quot;&gt;6. void* 형 포인터&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry><entry><title type="html">Chapter 13.6 | void* 형 포인터</title><link href="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6/" rel="alternate" type="text/html" title="Chapter 13.6 | void* 형 포인터" /><published>2022-02-15T00:00:00+09:00</published><updated>2022-02-15T00:00:00+09:00</updated><id>http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6</id><content type="html" xml:base="http://localhost:4000/do%20it!%20c%EC%96%B8%EC%96%B4%20%EC%9E%85%EB%AC%B8/Doit_C_13.6/">&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="1-운영체제의-메모리-관리-방식">1. 운영체제의 메모리 관리 방식</h1>
+&lt;h1 id=&quot;1-운영체제의-메모리-관리-방식&quot;&gt;1. 운영체제의 메모리 관리 방식&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="2-포인터">2. 포인터</h1>
+&lt;h1 id=&quot;2-포인터&quot;&gt;2. 포인터&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="3-포인터와-const-키워드">3. 포인터와 const 키워드</h1>
+&lt;h1 id=&quot;3-포인터와-const-키워드&quot;&gt;3. 포인터와 const 키워드&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="4-포인터-변수의-주소-연산">4. 포인터 변수의 주소 연산</h1>
+&lt;h1 id=&quot;4-포인터-변수의-주소-연산&quot;&gt;4. 포인터 변수의 주소 연산&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="5-포인터와-대상의-크기">5. 포인터와 대상의 크기</h1>
+&lt;h1 id=&quot;5-포인터와-대상의-크기&quot;&gt;5. 포인터와 대상의 크기&lt;/h1&gt;
 
-<p><br /><br /><br /></p>
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-<h1 id="6-void-형-포인터">6. void* 형 포인터</h1>]]></content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+&lt;h1 id=&quot;6-void-형-포인터&quot;&gt;6. void* 형 포인터&lt;/h1&gt;</content><author><name>SYdney-Go</name><email>ksy960809@gmail.com</email></author><category term="Do it! C언어 입문" /><summary type="html"></summary></entry></feed>
