@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "KEIL 코드 최적화"
+title: "4. KEIL 코드 최적화"
 categories: [STM32]
 toc: true
 author_profile: false
@@ -20,7 +20,7 @@ SFR의 경우, 최적화해버리면 외부 요인에 의해 변경된 하드웨
 
 따라서 SFR접근을 하는 경우에는 되도록 volatile 키워드를 사용해주자
 
-![Untitled](Part%202%20KEI%20c1bc0/Untitled%2037.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F89f8e340-bbe2-4f32-a406-0e8912134b4f%2FUntitled.png?table=block&id=59c0cebe-6224-43bc-80be-cc46a37217de&spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&width=2000&userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&cache=v2)
 
 ### 최적화
 
@@ -28,4 +28,4 @@ SFR의 경우, 최적화해버리면 외부 요인에 의해 변경된 하드웨
 
 Level3 : 최대 최적화한 경우
 
-![Untitled](Part%202%20KEI%20c1bc0/Untitled%2038.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F2a3765e7-5295-4e7a-9cfb-f03073fd30c2%2FUntitled.png?table=block&id=82234847-8ca6-4e74-9335-83b28b7148c2&spaceId=7a6b4b37-d969-4d36-a069-a8add2591900&width=2000&userId=ff8f58fa-3d3e-43a0-99fa-e0ff405dfa57&cache=v2)
