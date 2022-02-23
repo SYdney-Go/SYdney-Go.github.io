@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "1. 하드웨어의 구조"
+title: "1 하드웨어의 구조"
 categories: [STM32]
 toc: true
 author_profile: false

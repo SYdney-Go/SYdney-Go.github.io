@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[2. 하드웨어의 제어]"
+title: "2 하드웨어의 제어]"
 categories: [STM32]
 toc: true
 author_profile: false

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "4. KEIL 코드 최적화"
+title: "4 KEIL 코드 최적화"
 categories: [STM32]
 toc: true
 author_profile: false

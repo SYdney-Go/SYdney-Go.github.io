@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "3. KEIL 개발 환경 사용"
+title: "3 KEIL 개발 환경 사용"
 categories: [STM32]
 toc: true
 author_profile: false
